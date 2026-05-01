@@ -1,4 +1,4 @@
-with customer as (
+with customers as (
     select 
         id as customer_id, 
         first_name,
@@ -35,7 +35,7 @@ final as(
         co.most_recent_order_date,
         coalesce(co.number_of_orders,0) as number_of_orders
 
-    from customers c 
+    from customers c
     left join customer_orders co using (customer_id)
 )
 
